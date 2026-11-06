@@ -26,7 +26,7 @@ class _GuidesScreenState extends State<GuidesScreen> {
     final ok = await showDialog<bool>(
       context: context,
       builder: (c) => StatefulBuilder(
-        builder: (c, set) => AlertDialog(
+        builder: (c, setLocal) => AlertDialog(
           title: const Text('New 49-day guide'),
           content: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start, children: [
             TextField(controller: name, decoration: const InputDecoration(labelText: 'Name (optional)')),
@@ -42,7 +42,7 @@ class _GuidesScreenState extends State<GuidesScreen> {
                   firstDate: DateTime.now().subtract(const Duration(days: 120)),
                   lastDate: DateTime.now(),
                 );
-                if (d != null) set(() => date = d);
+                if (d != null) setLocal(() => date = d);
               },
             ),
           ]),
@@ -54,7 +54,7 @@ class _GuidesScreenState extends State<GuidesScreen> {
       ),
     );
     if (ok != true) return;
-    final g = Guide(DateTime.now().millisecondsSinceEpoch.toString(), name.text.trim(), date, true, {});
+    final g = Guide(DateTime.now().millisecondsSinceEpoch.toString(), name.text.trim(), date, true, <String>{});
     Store.i.guides.insert(0, g);
     Store.i.saveGuides();
     Reminders.reschedule();
