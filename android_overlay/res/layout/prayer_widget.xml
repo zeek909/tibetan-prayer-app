@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="@drawable/prayer_widget_bg">
+    <TextView
+        android:id="@+id/widget_bo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#7A1F2B"
+        android:textSize="17sp"
+        android:maxLines="2" />
+    <TextView
+        android:id="@+id/widget_en"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#231C1A"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:maxLines="1" />
+    <TextView
+        android:id="@+id/widget_ev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#6D625C"
+        android:textSize="12sp"
+        android:maxLines="2" />
+</LinearLayout>
